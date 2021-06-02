@@ -4,7 +4,6 @@
 #include <math.h>
 
 float wallis_pi(int );
-float M_PI;
 
 int main(void) 
 {
@@ -17,7 +16,6 @@ int main(void)
       printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
       abort();
     }
-     return pi;
   }
 
   for (int i=500; i<3000; i++) 
@@ -28,18 +26,19 @@ int main(void)
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi);
       abort();
     }
-    return pi;
   }
 }
-float wallis_pi(a)
+float wallis_pi(int a)
 {
-  float pi = 1.0;
-  for (int i = 1; i < a; i++)
+  float pi;
+  float prd=1;
+  for (int i=1; i<a; i++)
   {
-        float num = 4.0 * i * i;
-        pi *= num / (num - 1);
+        float num = (4.0*i*i)/((4*i*i)-1);
+        prd = prd*num;
     }
-    return pi * 2;
+    pi=2*prd;
+ 	return pi;
 }
   
 
