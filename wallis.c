@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-float wallis_pi(int a);
+float wallis_pi(int );
 float M_PI;
 
 int main(void) 
@@ -17,7 +17,7 @@ int main(void)
       printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
       abort();
     }
-    else return pi;
+     return pi;
   }
 
   for (int i=500; i<3000; i++) 
@@ -28,7 +28,7 @@ int main(void)
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi);
       abort();
     }
-    else return pi;
+    return pi;
   }
 }
 float wallis_pi(a)
