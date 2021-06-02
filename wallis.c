@@ -3,42 +3,33 @@
 #include <stdio.h>
 #include <math.h>
 
-float wallis_pi(int );
+float wallis_pi(int);
 
-int main(void) 
-{
+int main(void) {
   float pi;
-  for (int i=0; i<5; i++)
-  {
+  for (int i=0; i<5; i++) {
     pi = wallis_pi(i);
-    if (!(fabs(pi - M_PI) > 0.15))
-    {
+    if (!(fabs(pi - M_PI) > 0.15)) {
       printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
       abort();
     }
   }
 
-  for (int i=500; i<3000; i++) 
-  {
+  for (int i=500; i<3000; i++) {
     pi = wallis_pi(i);
-    if (!(fabs(pi - M_PI) < 0.01)) 
-    {
+    if (!(fabs(pi - M_PI) < 0.01)) {
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi);
       abort();
     }
   }
 }
 float wallis_pi(int a)
-{
-  float pi;
-  float prd=1;
-  for (int i=1; i<a; i++)
-  {
-        float num = (4.0*i*i)/((4*i*i)-1);
-        prd = prd*num;
-    }
-    pi=2*prd;
+ {	float pi;
+ 	float prd=1;
+ 	for(int i=1; i<=a; i++){
+ 	float num = (4.0*i*i)/((4*i*i)-1);
+ 	prd= prd*num;
+ 	}
+ 	pi= 2*prd;
  	return pi;
 }
-  
-
